@@ -10,8 +10,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const action = e.target.action
         if (!action)  {
            nombre = key.dataset.columns
-           let chiffre = key.textContent
-           disp.textContent = chiffre
+           let chiffre = Number(key.textContent)
+           let nombre_affiche = Number(disp.textContent)
+           if (nombre_affiche == 0) {
+            disp.textContent = chiffre
+           }
+           else {
+            disp.textContent = chiffre + nombre_affiche * 10
+
+        
+           }
+
+           
         }
         // Do something
     }
