@@ -12,9 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
            nombre = key.dataset.columns
            let chiffre = Number(key.textContent)
            let nombre_affiche = Number(disp.textContent)
-           if (nombre_affiche == 0) {
+           // si on a une opération, on ne la garde pas affichée
+           if (nombre_affiche == 0 || nombre_affiche == "NaN") 
+           {
             disp.textContent = chiffre
            }
+
            else {
             disp.textContent = chiffre + nombre_affiche * 10
 
@@ -26,6 +29,18 @@ document.addEventListener("DOMContentLoaded", () => {
         if (action == 'clear' ){
             disp.textContent = 0
         }
+        if ( action == "add"){
+            memoire = Number(disp.textContent) // on garde le nb précédent en mémoire
+            prev_action = "add" // on garde l'opération précédente en mémoire
+            disp.textContent = key.textContent 
+        }
+        if (action == "calculate" ) {
+            let nombre_affiche = Number(disp.textContent)
+            if (prev_action == "add") {
+                disp.textContent = nombre_affiche + memoire
+            }
+        }
+
         // Do something
     }
     })
