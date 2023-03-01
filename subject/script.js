@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
            let chiffre = Number(key.textContent)
            let nombre_affiche = Number(disp.textContent)
            // si on a une opération, on ne la garde pas affichée
-           if (nombre_affiche == 0 || nombre_affiche == "NaN") 
+           if (nombre_affiche == 0 || nombre_affiche == NaN) 
            {
             disp.textContent = chiffre
            }
