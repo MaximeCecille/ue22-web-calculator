@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     calculator.addEventListener('click', e => {
     if (e.target.matches('button')) {
         const key = e.target
-        const action = e.target.action
-        if (!action)  {
+        const action = e.target.dataset.action
+        if (! action)  {
            nombre = key.dataset.columns
            let chiffre = Number(key.textContent)
            let nombre_affiche = Number(disp.textContent)
@@ -22,6 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
            }
 
            
+        }
+        if (action == 'clear' ){
+            disp.textContent = 0
         }
         // Do something
     }
